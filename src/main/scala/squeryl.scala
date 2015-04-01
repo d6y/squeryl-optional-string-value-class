@@ -3,7 +3,11 @@ import org.squeryl.dsl._
 
 object SquerylEntrypoint extends PrimitiveTypeMode {
 
-  case class PlanetName(value: String) extends AnyVal
+  // Don't do this...
+  // case class PlanetName(value: String) extends AnyVal
+
+  // But this is fine:
+  case class PlanetName(value: String)
 
   implicit val planetNameTEF = new NonPrimitiveJdbcMapper[String, PlanetName, TString](stringTEF, this) {
     def convertFromJdbc(v: String) = new PlanetName(v)

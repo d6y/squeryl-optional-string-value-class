@@ -2,16 +2,20 @@
 
 Question: How to support optional value classes, backed by a string?
 
+Answer: Don't extend `AnyVal`
+
+See this question and the answer from Max on [the Squeryl mailing list](https://groups.google.com/forum/#!topic/squeryl/JnyJ9CXH2BI).
+
 # Create an example database
 
 ```
 $ psql
 # create database "scratch";
 # \c scratch
-# create table world ( planetName varchar(128) );
+# create table world ( "planetName" varchar(128) );
 ```
 
-# Stack trace
+# Stack trace if you extend AnyVal
 
 From `sbt run`
 
